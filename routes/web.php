@@ -23,3 +23,31 @@ Route::get('/visitors/{visitor}/edit', [App\Http\Controllers\VisitorController::
 Route::post('/visitors/{visitor}/edit', [App\Http\Controllers\VisitorController::class, 'update'])->name('visitors.update');
 
 Route::get('/visitors/{visitor}/delete', [App\Http\Controllers\VisitorController::class, 'delete'])->name('visitors.delete');
+
+Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs');
+
+Route::get('/blogs/create', [App\Http\Controllers\BlogController::class, 'create'])->name('blogs.create');
+
+Route::post('/blogs/create', [App\Http\Controllers\BlogController::class, 'store'])->name('blogs.store');
+
+Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show');
+
+Route::get('/blogs/{blog}/edit', [App\Http\Controllers\BlogController::class, 'edit'])->name('blogs.edit');
+
+Route::post('/blogs/{blog}/edit', [App\Http\Controllers\BlogController::class, 'update'])->name('blogs.update');
+
+Route::get('/blogs/{blog}/delete', [App\Http\Controllers\BlogController::class, 'delete'])->name('blogs.delete');
+
+Route::get('/users', [App\Http\Controllers\UserManagementController::class, 'index'])->name('users');
+
+Route::get('/users/create', [App\Http\Controllers\UserManagementController::class, 'create'])->name('users.create');
+
+Route::post('/users/create', [App\Http\Controllers\UserManagementController::class, 'store'])->name('users.store');
+
+Route::get('/users/{user}', [App\Http\Controllers\UserManagementController::class, 'show'])->name('users.show');
+
+Route::get('/users/{user}/edit', [App\Http\Controllers\UserManagementController::class, 'edit'])->name('users.edit');
+
+Route::post('/users/{user}/edit', [App\Http\Controllers\UserManagementController::class, 'update'])->name('users.update');
+
+Route::get('/users/{user}/delete', [App\Http\Controllers\UserManagementController::class, 'delete'])->name('users.delete');
