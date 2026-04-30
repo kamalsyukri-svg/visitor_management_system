@@ -29,4 +29,31 @@ class VisitorController extends Controller
         $visitor->save();
         return redirect()->route('visitors');
     }
+
+
+
+    public function show(\App\models\Visitor $visitor)
+    {
+        return view('visitors.show', compact('visitor'));
+    }
+
+
+    public function edit(\App\Models\Visitor $visitor)
+    {
+        // return to views - resources/views/visitors/edit.blade.php
+        return view('visitors.edit', compact('visitor'));
+    }
+
+    public function update(\App\Models\Visitor $visitor, Request $request)
+    {
+        // update data to table 'visitors' using model Visitor Method POPO
+        $visitor->name = $request->name;
+        $visitor->phone = $request->phone;
+        $visitor->email = $request->email;
+        $visitor->save();
+        
+        // redirect to visitors.index
+        return redirect()->route('visitors');
+    }
 }
+
