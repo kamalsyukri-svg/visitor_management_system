@@ -55,5 +55,14 @@ class VisitorController extends Controller
         // redirect to visitors.index
         return redirect()->route('visitors');
     }
+
+    public function delete(\App\Models\Visitor $visitor)
+    {
+    $visitor->delete();
+
+    return redirect()->route('visitors');
+
+    }
+
 }
 

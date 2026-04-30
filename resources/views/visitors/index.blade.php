@@ -28,6 +28,13 @@
                                     <td>
                                         <a href="{{ route('visitors.show', $visitor->id) }}" class="btn btn-primary">Show</a>
                                         <a href="{{ route('visitors.edit', $visitor->id) }}" class="btn btn-warning">Edit</a>
+
+                                        <a onclick="return confirm(' Are you sure to want delete this visitor')"
+                                        href="{{ route('visitors.delete', $visitor->id) }}" 
+                                        class="btn btn-danger">
+                                        
+                                        Delete
+                                    </a>
                                     </td>
                                 </tr>
                             @endforeach
