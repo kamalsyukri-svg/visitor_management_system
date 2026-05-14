@@ -27,12 +27,15 @@ class VisitorController extends Controller
         $visitor->phone = $request->phone;
         $visitor->email = $request->email;
         $visitor->save();
+
+        auth()->user()->notify(new \App\Notifications\VisitorCreatedNotification());
+
         return redirect()->route('visitors');
     }
 
 
 
-    public function show(\App\models\Visitor $visitor)
+    public function show(\App\Models\Visitor $visitor)
     {
         return view('visitors.show', compact('visitor'));
     }
@@ -60,6 +63,8 @@ class VisitorController extends Controller
     {
     $visitor->delete();
 
+
+    auth()->user()->notify(new \App\Notifications\VisitorDeletedNotification());
     return redirect()->route('visitors');
 
     }

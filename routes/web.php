@@ -10,6 +10,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware('auth')->prefix('notifications')->name('notifications.')->group(function () {
+    Route::get('/', [App\Http\Controllers\NotificationController::class, 'index'])->name('index');
+    Route::post('/mark-all-read', [App\Http\Controllers\NotificationController::class, 'markAllAsRead'])->name('mark-all-read');
+    Route::delete('/all', [App\Http\Controllers\NotificationController::class, 'destroyAll'])->name('destroy-all');
+    Route::get('/{id}', [App\Http\Controllers\NotificationController::class, 'show'])->name('show');
+});
+
 Route::get('/visitors', [App\Http\Controllers\VisitorController::class, 'index'])->name('visitors');
 
 Route::get('/visitors/create', [App\Http\Controllers\VisitorController::class, 'create'])->name('visitors.create');
