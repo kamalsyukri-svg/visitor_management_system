@@ -10,6 +10,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware('auth')->get('/authentication-logs', [App\Http\Controllers\AuthenticationLogController::class, 'index'])->name('authentication-logs.index');
+
 Route::middleware('auth')->prefix('notifications')->name('notifications.')->group(function () {
     Route::get('/', [App\Http\Controllers\NotificationController::class, 'index'])->name('index');
     Route::post('/mark-all-read', [App\Http\Controllers\NotificationController::class, 'markAllAsRead'])->name('mark-all-read');
