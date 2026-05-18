@@ -42,6 +42,34 @@
                     </table>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">{{ __('Visitor Deleted Index') }}</div>
+
+                <div class="card-body">
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($deletedvisitors as $deletedvisitor)
+                                <tr>
+                                    <td>{{ $deletedvisitor->name }}</td>
+                                    <td>{{ $deletedvisitor->phone }}</td>
+                                    <td>{{ $deletedvisitor->email }}</td>
+                                    <td>{{ $deletedvisitor->created_at->diffForHumans() }}</td>
+                                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
