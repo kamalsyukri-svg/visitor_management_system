@@ -60,3 +60,7 @@ Route::get('/users/{user}/edit', [App\Http\Controllers\UserManagementController:
 Route::post('/users/{user}/edit', [App\Http\Controllers\UserManagementController::class, 'update'])->name('users.update');
 
 Route::get('/users/{user}/delete', [App\Http\Controllers\UserManagementController::class, 'delete'])->name('users.delete');
+
+Route::get('/visitors/{visitor}/restore', [App\Http\Controllers\VisitorController::class, 'restore'])->name('visitors.restore');
+
+Route::get('/visitors/{visitor}/force-delete', [App\Http\Controllers\VisitorController::class, 'forceDelete'])->name('visitors.force-delete');

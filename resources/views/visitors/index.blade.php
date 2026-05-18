@@ -63,6 +63,10 @@
                                     <td>{{ $deletedvisitor->phone }}</td>
                                     <td>{{ $deletedvisitor->email }}</td>
                                     <td>{{ $deletedvisitor->created_at->diffForHumans() }}</td>
+                                    <td>
+                                        <a href="{{ route('visitors.restore', $deletedvisitor->id) }}" class="btn btn-success">Restore</a>
+                                        <a href="{{ route('visitors.force-delete', $deletedvisitor->id) }}" class="btn btn-danger">Force Delete</a>
+                                    </td>
                                     
                                 </tr>
                             @endforeach

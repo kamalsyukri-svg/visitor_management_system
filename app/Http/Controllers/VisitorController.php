@@ -70,5 +70,20 @@ class VisitorController extends Controller
 
     }
 
+    public function restore($visitor)
+    {
+        $visitor = \App\Models\Visitor::onlyTrashed()->find($visitor);
+
+        $visitor->restore();
+        return redirect()->route('visitors');
+    }
+
+    public function forceDelete($visitor)
+    {
+        $visitor = \App\Models\Visitor::onlyTrashed()->find($visitor);
+        $visitor->forceDelete();
+        return redirect()->route('visitors');
+    }
+
 }
 
